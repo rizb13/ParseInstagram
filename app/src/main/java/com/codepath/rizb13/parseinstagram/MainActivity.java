@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
     public TextView tvCurrentUser;
-    public TextView tvFeed;
+    //public TextView tvFeed;
     public EditText etDescription;
     public Button btnCaptureImage;
     public ImageView ivPostImage;
@@ -48,16 +48,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvCurrentUser = findViewById(R.id.tvCurrentUser);
-        tvFeed = findViewById(R.id.tvFeed);
+        //tvFeed = findViewById(R.id.tvFeed);
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout);
-        String greetingMsg = "Welcome "+ ParseUser.getCurrentUser().getUsername();
-        String feed = "Your profile!";
+        String greetingMsg = ParseUser.getCurrentUser().getUsername();
+        //String feed = "Your profile!";
         tvCurrentUser.setText(greetingMsg);
-        tvFeed.setText(feed);
+        //tvFeed.setText(feed);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override

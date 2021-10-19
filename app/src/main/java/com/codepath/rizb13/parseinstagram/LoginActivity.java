@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +28,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            goMainActivity();
+        }
 
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
@@ -46,8 +50,26 @@ public class LoginActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goSignup();
+                if(!etUsername.getText().toString().isEmpty() &&
+                        !etPassword.getText().toString().isEmpty()){
 
+                    ParseUser user = new ParseUser();
+                    user.setUsername(etUsername.getText().toString());
+                    user.setPassword(etPassword.getText().toString());
+
+                    user.signUpInBackground(new SignUpCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if(e == null){
+                                Toast.makeText(getApplicationContext(), "Signup Successful", Toast.LENGTH_LONG).show();
+                                goMainActivity();
+                            }else{
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+                }
             }
         });
     }
