@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ParseInstagram</string>
+    <string name="password">Password</string>
+    <string name="description">Description...</string>
+    <string name="take_picture">Take picture</string>
+    <string name="submit">Submit</string>
+    <string name="signup_username">Signup Username</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="signup_password">Password</string>
+    <string name="logout">Logout</string>
+</resources>
