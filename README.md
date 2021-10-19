@@ -21,10 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] List anything else that you can get done to improve the app functionality!
-- Improve UI.
-- Greet loged in user.
-- Added Home button on signup activity which nevigate back to login activity.
+- [] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 
